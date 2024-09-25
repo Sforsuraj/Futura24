@@ -161,7 +161,7 @@ p {
     background-repeat: no-repeat; /* Prevent the image from repeating */
   }
     .wrapper {
-    width: 90%;
+    width: 100%;
   }
 }
 
