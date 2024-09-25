@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Registration</title>
+  <link rel="stylesheet" href="guitar-web.css">
+</head>
+<body>
+
+  <div class="wrapper" id="desc" style="display: block; color: white; text-align: left; max-width: 600px;">
+
+      
+      <h2 style="margin: 2%; margin-left: 0%;">IDEA WAR - BATTLE OF VARIANTS</h2>
+      <h3 style="margin: 2%; margin-left: 0%;">Team Dynamics:</h3>
+      <p style="margin: 2%; margin-left: 0%;">Form a duo, representing your Spider-Verse team.</p>
+      <h3 style="margin: 2%; margin-left: 0%;">Event Structure:</h3>
+      <p style="margin: 2%; margin-left: 0%;">Dive into the Innovation-Verse with two action-packed rounds</p>
+      <h3 style="margin: 2%; margin-left: 0%;">Round 1: Online – Web of Ideas</h3>
+      <li>A Problem statement drops, like a new villain entering your Spider-Verse.</li>
+      <li>Your squad submits an abstract showing your bold strategy.</li>
+      <li>The sharpest webs of ideas will be shortlisted for the final showdown.</li>
+      <h3 style="margin: 2%; margin-left: 0%;">Round 2: Offline – The Final Showdown</h3>
+      <li>Shortlisted teams will arrive at the venue, ready for battle.</li>
+      <li>A fresh problem statement will be revealed, just before the clock starts.</li>
+      <li>Create a dynamic PPT in 3 hours, adapting swiftly like Spider-Man with your Peter Tingle!.</li>
+      <li>But beware: a surprise sabotage will strike mid-event!</li>
+      <li>No AI gadgets—just pure Spider-skills.</li>
+      <li>Present your solution to the evaluators and emerge victorious in the Innovation-Verse!</li>
+
+      <div style="display: flex;position: relative;justify-content: space-around;flex-direction: row;align-items: center;">
+        <a href="javascript:history.back()" style="text-decoration: none;"><button type="submit" id="regbackBtn">Back</button><a>
+        <button type="submit" id="regBtn" onclick="function1()" class="regBtn">Register Now</button>
+      </div>
+  </div>
+
+  <div class="wrapper" id="wrapper-box" style="display: none;">
+    <form id="form" method="post">
+      <h2>Register Your Team</h2>
+      
+      <div class="input-field">
+        <input type="text" name="team_name" id="team_name" required>
+        <label for="team_name">Team Name</label>
+      </div>
+
+      <div class="input-field">
+        <input type="email" name="email" id="email" required>
+        <label for="email">Email Id</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" name="college" id='college' required>
+        <label for="college">College Name</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" name="team_leader" id="team_leader" required>
+        <label for="team_leader">Team Leader</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" name="tl_Dept" id='tl_Dept' required>
+        <label for="tl_Dept">Dept</label>
+      </div>
+
+
+      <div class="input-field">
+        <input type="text" name="member" id="member" required>
+        <label for="member">Member</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" name="m_dept" id='m_dept' required>
+        <label for="m_dept">Dept</label>
+      </div>
+
+      <div class="input-field">
+        <input type="tel" name="ph" id="ph" required>
+        <label for="ph">Phone Number</label>
+      </div>
+
+      <div style="display: flex; position: relative; justify-content: space-evenly; flex-direction: row; left: -50%;">
+        <button type="submit" id="backBtn"  onclick="function2()">Back</button>
+        <button type="submit" id="submitBtn"  style="left: 65%;">Submit</button>
+      </div>
+
+      <!--<p id="loadingMessage"></p>-->
+      <div id="loader_id" style="display: none;">
+      <div class="loader">
+        <div class="loader-inner">
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+          <div class="loader-block"></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+
+  <div class="brutalist-card" style="display: none;" id="success-container">
+    <div class="brutalist-card__header">
+      <div class="brutalist-card__icon" style="background-color: rgba(43, 119, 218, 0.9);"> <!-- Green background for success -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 13.17l7.59-7.59L20 7l-9 10z"
+          ></path> <!-- Checkmark icon -->
+        </svg>
+      </div>
+      <div class="brutalist-card__alert" style="color: rgb(59, 110, 237);">Success</div>
+    </div>
+    <div class="brutalist-card__message" id="sumsg">
+    </div>
+    <div class="brutalist-card__actions">
+      <a href="#" class="brutalist-card__button brutalist-card__button--mark" id="goBackSuccess">Continue</a>
+    </div>
+  </div>
+  
+
+  
+
+  <div class="brutalist-card" style="display: none;" id="error-container">
+    <div class="brutalist-card__header">
+      <div class="brutalist-card__icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+          ></path>
+        </svg>
+      </div>
+      <div class="brutalist-card__alert">Warning</div>
+    </div>
+    <div class="brutalist-card__message" id="ermsg">
+    </div>
+    <div class="brutalist-card__actions">
+      <div class="brutalist-card__button brutalist-card__button--read" id="goBackError">Try again</button>
+    </div>
+  </div>
+  
+  
+  <script>
+
+    function function1() {
+        document.getElementById("desc").style.display="none";
+        document.getElementById("wrapper-box").style.display="block";
+    }
+
+    function function2() {
+      document.getElementById("wrapper-box").style.display="none";
+      document.getElementById("desc").style.display="block";
+      form.reset();
+    }
+
+    const loadingMessage = document.getElementById("loadingMessage");
+    const loader=document.getElementById("loader_id");
+    const url = "https://script.google.com/macros/s/AKfycbzYK7YEuL0DZinLQNvx8kl9AaXtdngbVBiCYTehItqZy5YxUV5JzqGLLvEGvy5lprHt/exec";
+    const form = document.querySelector("#form");
+  
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      //loadingMessage.innerText = "Loading..."; // Indicate loading state
+      loader.style.display='block';
+      document.getElementById("submitBtn").style.display='none';
+      document.getElementById("backBtn").style.display='none';
+  
+      const data = new FormData(form);
+      
+      fetch(url, {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.text())
+        .then((finalRes) => {
+          //loadingMessage.innerText = finalRes; // Show response message
+          if (finalRes==='Team registered successfully..') {
+            loader.style.display = "none"; // Hide loading state
+            //window.prompt(finalRes);
+            document.getElementById("wrapper-box").style.display='none';
+            document.getElementById("success-container").style.display='block';
+            document.getElementById("sumsg").innerText=finalRes;
+          }
+          else{
+            loader.style.display='none';
+            document.getElementById("wrapper-box").style.display='none';
+            document.getElementById("error-container").style.display='block';
+            document.getElementById("ermsg").innerText=finalRes;
+          }
+        })
+    });
+
+    document.getElementById('goBackSuccess').addEventListener('click', () => {
+      document.getElementById("success-container").style.display = 'none';
+      document.getElementById("wrapper-box").style.display = 'block';
+      document.getElementById("submitBtn").style.display='block';
+      document.getElementById("backBtn").style.display='block';
+      form.reset();
+    });
+
+    document.getElementById('goBackError').addEventListener('click', () => {
+      document.getElementById("error-container").style.display = 'none';
+      document.getElementById("wrapper-box").style.display = 'block';
+      document.getElementById("submitBtn").style.display='block';
+      document.getElementById("backBtn").style.display='block';
+      
+    });
+
+  </script>
+  
+
+</body>
+</html>
